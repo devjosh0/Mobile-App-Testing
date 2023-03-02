@@ -1,4 +1,4 @@
-package AddItemsToCart;
+package PageBase;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -10,36 +10,34 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddCartPageBase {
+public class PageBaseObject {
+    AppiumDriver driver;
     public final long WAIT = 500;
- AppiumDriver driver;
-
-
-    public  AddCartPageBase(AppiumDriver appiumDriver){
-        PageFactory.initElements(new AppiumFieldDecorator(appiumDriver),this);
+    public PageBaseObject(AppiumDriver appiumDriver){
+        PageFactory.initElements( new AppiumFieldDecorator(appiumDriver),this);
         driver=appiumDriver;
     }
-    public void WaitForVisibility(MobileElement element){
+    public void waitforvisibility(MobileElement element){
         WebDriverWait wait = new WebDriverWait(driver,WAIT);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
     //Creating clear input field object
-    public void ClearInputField(MobileElement element){
-        WaitForVisibility(element);
+    public void cleartextobject(MobileElement element){
+        waitforvisibility(element);
         element.clear();
     }
     //Creating send Text into input field object
-    public void SendTextObject(MobileElement element, String textInput){
-        WaitForVisibility(element);
+    public void sendtextobject(MobileElement element, String textInput){
+        waitforvisibility(element);
         element.setValue(textInput);
     }
     // Creating click button object
-    public void ClickButtonObject(MobileElement element){
-        WaitForVisibility(element);
+    public void clickbuttonobject(MobileElement element){
+       waitforvisibility(element);
         element.click();
     }
     //Creating scrollUp object
-    public void ScrollUpObject(MobileElement element){
+    public void scrollupobject(MobileElement element){
         AndroidTouchAction action = new AndroidTouchAction(driver);
         action.press(ElementOption.element(element))
                 .waitAction()
@@ -47,7 +45,7 @@ public class AddCartPageBase {
                 .release()
                 .perform();
     }
-    public void ScrollSide(MobileElement element){
+    public void scrollsideObject(MobileElement element){
         AndroidTouchAction action = new AndroidTouchAction(driver);
         action.press(ElementOption.element(element))
                 .waitAction()
@@ -55,12 +53,5 @@ public class AddCartPageBase {
                 .release()
                 .perform();
     }
-    public void ScrollUpObject1(MobileElement element){
-        AndroidTouchAction action = new AndroidTouchAction(driver);
-        action.press(ElementOption.element(element))
-                .waitAction()
-                .moveTo(PointOption.point(0,-2300))
-                .release()
-                .perform();
-    }
+
 }

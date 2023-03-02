@@ -1,32 +1,31 @@
 package AddCartTestPage;
 
-import AddItemsToCart.AddCartDesiredCapabilities;
-import AddItemsToCart.AddCartLocators;
+
+import CapabilitiesPageObject.DesiredCapabilities;
+import Implementation.ImplementationPageObject;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-
-public class AddProductToCart extends AddCartDesiredCapabilities {
-    AddCartLocators addCartLocators;
+public class AddProductToCart extends DesiredCapabilities {
+    ImplementationPageObject implementationPageObject;
 
     @Test
-    public void AddCart() throws MalformedURLException {
-        Android_SetUp();
-        addCartLocators = new AddCartLocators(driver);
-        addCartLocators.ClickChooseCountry();
-        addCartLocators.ClickPressTarget();
-        addCartLocators.ClickProduct();
-        addCartLocators.ClickAddToCartBtn();
-        addCartLocators.ClickGoBackArrow();
-        addCartLocators.ClickTargetAndScroll();
-        addCartLocators.ClickProduct2();
-        addCartLocators.ClickAddToCartBtn();
-        addCartLocators.ClickGoBackArrow();
-        addCartLocators.ClickAndScrollDown();
-        addCartLocators.ClickProduct3();
-        addCartLocators.ClickAddToCartBtn1();
-        addCartLocators.ClickGoBackArrow();
-       // addCartLocators.ClickViewCartBtn();
+    public void additemstocart()  {
+
+        implementationPageObject = new ImplementationPageObject(driver);
+        implementationPageObject.clickchoosecountry();
+        implementationPageObject.clickproduct();
+        implementationPageObject.clickaddtocartbtn();
+        implementationPageObject.clickplussigntoaddproducttocart();
+        implementationPageObject.clickcontinueshopping();
+        implementationPageObject.clicktogoback();
+        implementationPageObject.performscrollsideaction();
+        implementationPageObject.clicksecondproduct();
+        implementationPageObject.clickaddtocartbtn();
+        implementationPageObject.clickplussigntoaddproducttocart();
+        implementationPageObject.clickcontinueshopping();
+        implementationPageObject.clicktogoback();
+        implementationPageObject.clicktoviewcart();
+
 
 
     }
