@@ -1,4 +1,4 @@
-package AddCartTestPage;
+package addcarttestpage;
 
 
 import CapabilitiesPageObject.DesiredCapabilities;
