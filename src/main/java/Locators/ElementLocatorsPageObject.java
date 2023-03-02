@@ -1,101 +1,93 @@
-package SginUpPageObject;
+package Locators;
 
+import PageBase.PageBaseObject;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-public class SignUpElementsLocators extends SignUpPageBase{
-    public SignUpElementsLocators(AppiumDriver appiumDriver) {
+public class ElementLocatorsPageObject extends PageBaseObject {
+
+    public ElementLocatorsPageObject(AppiumDriver appiumDriver) {
         super(appiumDriver);
     }
     //Locator for choose country
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]")
+    public
     MobileElement chooseCountry;
 
     //Locator for account icon
     @AndroidFindBy(id = "com.jumia.android:id/navigation_account")
+    public
     MobileElement accountBtn;
 
     //Get inbox locator for scroll
     @AndroidFindBy(id = "com.jumia.android:id/inbox_container")
+    public
     MobileElement inboxBtn;
 
     //Locator for login button
     @AndroidFindBy(id ="com.jumia.android:id/button_bottom_login_logout")
+    public
     MobileElement loginBtn;
 
     //Locator for email input field
     @AndroidFindBy(className = "android.widget.EditText")
+    public
     MobileElement emailInputField;
 
     //locator for continue button
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View[3]/android.view.View/android.widget.Button")
+    public
     MobileElement continueLoginBtn;
 
     //locator for password input field
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText")
+    public
     MobileElement passwordInputField;
 
     // locator for confirm password input field
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.widget.EditText")
+    public
     MobileElement confirmPasswordInputField;
 
 
     //locator click password button
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View[6]/android.widget.Button")
+    public
     MobileElement passwordBtn;
+                                           ///ADD TO CART ELEMENTS
 
-    //Personal Details
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.FrameLayout/android.widget.ImageView")
+    public
+    MobileElement firstproductlocator;
 
-    //First Name Input locator
-    @AndroidFindBy(xpath = "[@id=screenshotContainer]/div[2]/div/div/div/div/div[31]")
-    MobileElement firstNameInput;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.ImageView")
+    public
+    MobileElement scrollright;
+    @AndroidFindBy(id = "com.jumia.android:id/add_to_cart_button")
+    public
+    MobileElement addcartbtn;
 
-//Creating click object for choose country
-    public void ClickChooseCountry(){
-        ClickButtonObject(chooseCountry);
+    @AndroidFindBy(id = "com.jumia.android:id/btn_add_to_cart")
+    public
+    MobileElement addproducttocart;
 
-    }
-    //Creating click account button object
-    public void ClickAccountButton(){
-        ClickButtonObject(accountBtn);
-    }
-    //Creating scroll down
-    public void PressInboxAndScroll(){
-       ScrollUpObject(inboxBtn);
-    }
-    //Creating click login object
-    public void ClickLoginBtn(){
-        WaitForVisibility(loginBtn);
-        ClickButtonObject(loginBtn);
-    }
-   //Creating send user email object
-    public void SendEmailText(String emailText){
-        WaitForVisibility(emailInputField);
-      SendTextObject(emailInputField,emailText);
-    }
+    @AndroidFindBy(id = "com.jumia.android:id/shoppingcart_checkout_continue_shopping")
+    public
+    MobileElement clickcontinueshoppingbtn;
 
-    //Creating click on continue longin button
-    public void ClickContinueLoginBtn(){
-        ClickButtonObject(continueLoginBtn);
-    }
-    //Creating user enter password object
-    public void SendEnterPassword(String password){
-        SendTextObject(passwordInputField,password);
-    }
+    @AndroidFindBy(accessibility = "Navigate up")
+    public
+    MobileElement gobackbtn;
 
-    //Creating user confirm password
-    public void SendConfirmPassword(String confirmpassword){
-        SendTextObject(confirmPasswordInputField,confirmpassword);
-    }
-   //Creating click password button
-    public void ClickContinuePasswordBtn(){
-        WaitForVisibility(passwordBtn);
-        ClickButtonObject(passwordBtn);
-    }
-    public void EnterFirstName(String firstname){
-//        WaitForVisibility(firstNameInput);
-        SendTextObject(firstNameInput,firstname);
-    }
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.FrameLayout/android.widget.ImageView")
+    public
+    MobileElement scondproductlocator;
+
+
+    @AndroidFindBy(id = "com.jumia.android:id/menu_basket_pktheme")
+    public
+    MobileElement viewcartbtn;
+
 
 }
