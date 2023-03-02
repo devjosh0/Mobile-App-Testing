@@ -1,4 +1,4 @@
-package SignUpTestPage;
+package signuptestpage;
 
 import CapabilitiesPageObject.DesiredCapabilities;
 import Implementation.ImplementationPageObject;
